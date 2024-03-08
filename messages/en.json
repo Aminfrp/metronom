@@ -1,0 +1,9 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "about": "About us",
+    "blog": "Blog",
+    "contactus": "Contact us",
+    "metronome": "Metronome"
+  }
+}
