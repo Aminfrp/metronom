@@ -1,0 +1,27 @@
+.menu {
+  left: 0;
+  top: 50px;
+  z-index: 10;
+  transition: all 0.5s ease;
+  min-width: 100%;
+}
+
+.showMenu {
+  max-height: 300px;
+}
+
+.hideMenu {
+  max-height: 0;
+}
+
+.chevronIcon {
+  transition: all 0.5s ease;
+}
+
+.rotateDefault {
+  transform: rotate(0deg);
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
