@@ -12,20 +12,26 @@ function MetronomeController() {
   const play = () => {
     if (!isPlay) {
       setPlay(true);
-      audioRef.current.play();
       setActiveIndex(0);
+      audioRef.current.src = "/sound/beep2.mp3";
+      audioRef.current.play();
     } else {
       setPlay(false);
+      setActiveIndex(null);
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
-      setActiveIndex(null);
     }
   };
 
   const handleEnded = () => {
-    audioRef.current.play();
+    if (activeIndex === nominator-1) {
+      audioRef.current.src = "/sound/beep2.mp3";
+    } else {
+      audioRef.current.src = "/sound/beep1.mp3";
+    }
+    setActiveIndex((idx) => (idx < nominator - 1 ? idx + 1 : 0));
     audioRef.current.currentTime = 0;
-    setActiveIndex((idx) => (idx <= nominator - 2 ? idx + 1 : 0));
+    audioRef.current.play();
   };
 
   return (
