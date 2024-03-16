@@ -1,0 +1,5 @@
+.step {
+  width: 0.75rem;
+  height: 0.75rem;
+  transition: all 0.2s ease-in-out;
+}

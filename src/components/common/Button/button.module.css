@@ -1,0 +1,7 @@
+/* play button component */
+.playBtn {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100%;
+  outline: none;
+}

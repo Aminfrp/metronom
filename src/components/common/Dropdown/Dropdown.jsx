@@ -4,7 +4,7 @@ import dropdownStyle from "./dropdown.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-const Dropdown = ({ children, items, handleSelectedItem }) => {
+const Dropdown = ({ children, items }) => {
   const [isShowMenu, setShowMenu] = useState(false);
   return (
     <div className="relative">
@@ -32,7 +32,6 @@ const Dropdown = ({ children, items, handleSelectedItem }) => {
           <div
             key={index}
             className="p-1 pointer select-none hover:bg-slate-400"
-            onClick={() => handleSelectedItem(item)}
           >
             {item}
           </div>

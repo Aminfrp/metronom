@@ -2,27 +2,14 @@ import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import Dropdown from "../common/Dropdown/Dropdown";
-
-const LangItem = ({ item }) => (
-  <div className="p-2 flex items-center justify-between gap-2 hover:text-slate-100">
-    <span className="text-xs">{item.title}</span>
-    <div className="relative" style={{ width: 30, height: "20px" }}>
-      <Image
-        className="rounded-md h-full"
-        src={`/images/${item.src}`}
-        objectFit="cover"
-        fill
-        alt="Flag"
-      ></Image>
-    </div>
-  </div>
-);
+import LangItem from "./LangItem";
 
 const Header = () => {
   const t = useTranslations("Navbar");
   const locale = useLocale();
   return (
     <nav className="flex justify-between">
+      {/* nav section */}
       <ul className="flex list-style-none gap-5 ">
         <li className="pointer">
           <Link href="/">{t("home")}</Link>
@@ -40,13 +27,16 @@ const Header = () => {
           <Link href={`${locale}/contactus`}>{t("contactus")}</Link>
         </li>
       </ul>
+      {/* language */}
       <Dropdown
         items={[
           <LangItem
             item={{ title: "PERSIAN", src: "iran-flag.svg" }}
+            lang="fa"
           ></LangItem>,
           <LangItem
             item={{ title: "ENGLISH", src: "england-flag.svg" }}
+            lang="en"
           ></LangItem>,
         ]}
       >
@@ -55,7 +45,9 @@ const Header = () => {
           <div className="relative" style={{ width: 40, height: "30px" }}>
             <Image
               className="rounded-md h-full"
-              src="/images/iran-flag.svg"
+              src={`/images/${
+                locale === "fa" ? "iran-flag" : "england-flag"
+              }.svg`}
               objectFit="cover"
               fill
               alt="Flag"
